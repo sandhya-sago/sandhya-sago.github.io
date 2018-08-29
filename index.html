@@ -7,39 +7,69 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
   <div class="container">
     <div class="row">
       <div class="col">
-          <div class="jumbotron-fluid container-fluid">
+          <div class="jumbotron-fluid bg-info text-white rounded text-center">
             <h1 class="display-4">Sandhya Govindaraju</h1>
-            <p class="lead">Looking for a Data Science opportunity in or around Austin Area.</p>
+            <p class="lead">Experienced Python developer looking for a Data Science opportunity.</p>
           </div>
       </div>
     </div>
   <div class="row">
-    <div class="col-3">    
-    <p><img src="WIN_20171017_10_40_12_Pro.jpg" alt="My photo" width="200" height="200"></p>
+    <div class="col-3">
+      <p><img src="WIN_20171017_10_40_12_Pro.jpg" class="rounded img-responsive" alt="My photo" width="200" height="200" align="middle"></p>
     </div>
     <div class="col-9">
-    <p>I supported tools and flows for IC design for about 13 years, initally at Sun Microsystems and later at Oracle Inc. 
-
+    <p>Experienced software developer. Vast knowledge integrating, customizing, testing, and deploying software. Partner with vendors to provide easy-to-use solutions and meet 
+      scheduled deadlines. Advocate in developing long-term relationships and communicating strategies to fulfill requirements of users. Provide consultative approach to team and 
+      customer-centric focus for success of organization.</p>
+      <p>
       Years of experence in coding in Python, testing (regression testing, unit testing, integration testing, code coverage).
-      I love debugging - years of working with "blackbox" and propretary vendor tools honed those skills. </p><p>
-      I hold a Masters of Science in Electrical Engineering from The University of Texas at Austin. Currently part of the April cohort at
-      <a href="https://techbootcamps.utexas.edu/data/">UT Austin Data Science and Visualization</a>.
-    </p>
-    <p>I like learning by doing and by teaching. I like to observe people ...</p>
-    <p>Below are some demonstration projects I have worked on recently.</p>
+      I love debugging - years of working with "blackbox" and propretary vendor tools honed those skills. </p>
+
+    <table class="table">
+      <tbody><tr>
+      <h5 >Education</h5>
+      <p>
+        <ul class="list-unstyled"><li>Masters of Science, Electrical and Computer Engineering, The University of Texas at Austin.</li>
+        <li>Currently part of the April 2018 cohort at
+            <a href="https://techbootcamps.utexas.edu/data/">UT Austin Data Science and Visualization</a>.</li>
+        </ul>
+      </p>
+      </tr>
+      <tr>
+      <h5 >Work Experience</h5>
+      <h6 >Oracle Corporation, 2010-2017</h6>
+      <p >
+      <ul class="list-unstyled"><li>
+      Part of the CAD tools team for 
+      <a href="https://en.wikipedia.org/wiki/SPARC">SPARC microprocessor</a> development</li>
+      <li>Principal Hardware Engineer : Seved as team lead for parasitic extraction flow development and support</li>
+      <li>Senior Hardware Engineer : Developemnt of utitlities for analysis of results and debug of issues.</li></ul>
+      <h6 >Sun Microsystems, 2005-2010</h6></p>
+      <p>
+      <ul class="list-unstyled"><li>  Part of the CAD tools team for 
+      <a href="https://en.wikipedia.org/wiki/SPARC">SPARC microprocessor</a> development</li>
+      <li>Hardware Engineer : Support and training for regresion framework.</li>
+      </ul>
+      </p>
+      </tr>
+      </tbody>
+    </table>
+      </div>
     </div>
-  </div>
+
+  <p>Below are some demonstration projects I have worked on recently.</p>
+
   <div class="row">
       <table class="table">
         <tbody>
           <tr>
-
             <td class="align-middle" style="width:50%">
               <p>Analysis of drug mortality and socio-economic conditions in Connecticut</p>
               <p>Extension of a project that I worked on with by cohort in the UT Austin Data Science Bootcamp. Used Python, Pandas, Matplotlib and Folium to
@@ -48,13 +78,13 @@
               GitHub Repository: <a href="https://github.com/sandhya-sago/DataViz-Project1">Project 1</a><br>
 
             </td>
-            <td>
-                <img src="images/ct_county_drug_mortality.jpg" alt="Connecticut drug deaths per county" class="img-thumbnail">
+            <td class="align-middle">
+                <img src="images/ct_county_drug_mortality.jpg" alt="Connecticut drug deaths per county" class="img-thumbnail" style="width: 300px; height: 200px">
               </td>
           </tr>
           <tr>
             <td >
-              <img src="images/oregon_schools.jpg" alt="Oregon School costs" class="img-thumbnail">
+              <img src="images/oregon_schools.jpg" alt="Oregon School costs" class="img-thumbnail" style="width: 200px; height: 300px" align="right">
             </td>
             <td class="align-middle">
                 <p>This project gets data about School Districts (and schools) in Oregon for the years 1997-2009 from multiple sources (https://datahub.io, https://www.ode.state.or.us), cleans, cross-correlates and analyzes them.
@@ -69,21 +99,26 @@
               webpages are rendered using Flask<br>
 
             GitHub Repository: <a href="https://github.com/sandhya-sago/dots_and_boxes">dots_and_boxes</a><br>
-            Play on Heroku: <a href="#">dots_and_boxes.heroku</a></p>
+            Play on Heroku: <a href="https://dots-boxes.herokuapp.com">dots-boxes.herokuapp.com</a></p>
             </td>
             <td style="width:60%">
-            <img src="images/dots_and_boxes.jpeg" alt="Dots and Boxes snapshot" class="img-thumbnail">
+            <img src="images/dots_and_boxes.jpeg" alt="Dots and Boxes snapshot" class="img-thumbnail" style="width: 300px; height: 200px">
             </td>
           </tr>
           <tr>
             <td >
-              <img src="images/dots_and_squares.jpeg" alt="Pygame Dots and Boxes snapshot" class="img-thumbnail">
+              <img src="images/dots_and_squares.jpeg" alt="Pygame Dots and Boxes snapshot" class="img-thumbnail" style="width: 300px; height: 300px" align="right">
             </td>
             <td class="align-middle">
-                <p>Classic dots and boxes game implemented as a Python package using PyGame. Unit tests included.<br>
-                  GitHub Repository: <a href="https://github.com/sandhya-sago/dots_and_squares">Pygame dots_and_boxes</a>
-                </p>
-              </td>
+              <p>Classic dots and boxes game implemented as a Python package using PyGame. Unit tests included.<br>
+                GitHub Repository: <a href="https://github.com/sandhya-sago/dots_and_squares">Pygame dots_and_boxes</a>
+              </p>
+            </td>
+          </tr>
+          <tr><td colspan="2"><a href = "https://sandhya-sago.github.io/weather_analysis/">Weather pattern analysis based on latitude</a>: Used Python, Pandas, API queries to get weather data from 
+          opensources and vizualize them using Matplotlib.</td></tr>
+          <tr><td colspan="2"><a href="https://sago-belly-button-diversity.herokuapp.com/">Visualization</a> of Belly Button Diversity dataset. Used Python, Flask, SQLLite, Javascript, Plotly and 
+            deplyed to Heroku.</a></td></tr>
         </tbody>
       </table>
       </div>
