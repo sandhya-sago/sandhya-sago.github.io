@@ -13,13 +13,14 @@
 <body style="background-color:mintcream;">
   <div class="container">
   <div class="row">
-    <div class="col-3  bg-info rounded text-white" >
+    <div class="col-2  bg-info rounded text-white offset-1" >
       <p align="center">&nbsp<br>&nbsp<br>
-        <img src="WIN_20171017_10_40_12_Pro.jpg" class="rounded img-responsive" alt="My photo" width="200" height="200" align="middle"></p>
+        <img src="WIN_20171017_10_40_12_Pro.jpg" class="rounded img-responsive" alt="My photo" width="150" height="150" align="middle"></p>
       <p>
         <h5>Technical Skills</h5>
         <ul class="list-unstyled"><li>
-          Python, Pandas, Numpy, Matplotlib, Seaborn, Folium
+          Python, Pandas, Numpy, Matplotlib, Seaborn, Folium,
+          Dash by Plotly
         </li><li>Web Scraping, Flask, APIs</li>
           <li>JavaScript, D3, Plotly, Leaflet</li>
           <li>R</li>
@@ -27,7 +28,7 @@
           <li>Unix and command-line experience</li>
       </p>
     </div>
-    <div class="col-9">
+    <div class="col-8">
         <div class="jumbotron-fluid bg-info text-white rounded text-center">
             <h1 class="display-4">Sandhya Govindaraju</h1>
             <p class="lead">Experienced Python developer looking for a Data Science opportunity.</p>
@@ -44,25 +45,30 @@
       <h5 >Education</h5>
       <p>
         <ul class="list-unstyled"><li>Masters of Science, Electrical and Computer Engineering, The University of Texas at Austin.</li>
-        <li>Currently part of the April 2018 cohort at
-            <a href="https://techbootcamps.utexas.edu/data/">UT Austin Data Science and Visualization</a>.</li>
+        <li>
+            <a href="https://techbootcamps.utexas.edu/data/">UT Austin Data Science and Visualization</a> April 2018 - Oct 2018.</li>
         </ul>
       </p>
       </tr>
       <tr>
       <h5 >Work Experience</h5>
+      <h6>Freelancer, September 2018 - Present</h6>
+      <p><ul class="list-unstyled"><li>LJH Ventures, LLC: Develop dashboard to vizualize and analyze New York realestate 
+      information. </li>
+      <li>Tutor, Trilogy Education Services: Tutor students of 
+      Data Science and Vizualization bootcamp.</li></ul> </p>
       <h6 >Oracle Corporation, 2010-2017</h6>
       <p >
       <ul class="list-unstyled"><li>
       Part of the CAD tools team for 
       <a href="https://en.wikipedia.org/wiki/SPARC">SPARC microprocessor</a> development</li>
-      <li>Principal Hardware Engineer : Seved as team lead for parasitic extraction flow development and support</li>
-      <li>Senior Hardware Engineer : Developemnt of utitlities for analysis of results and debug of issues.</li></ul>
+      <li>Team Lead : Seved as team lead for parasitic extraction flow development and support.</li>
+      <li>Senior Applications Engineer : Development of utilities for analysis of results and debug of issues.</li></ul>
       <h6 >Sun Microsystems, 2005-2010</h6></p>
       <p>
       <ul class="list-unstyled"><li>  Part of the CAD tools team for 
       <a href="https://en.wikipedia.org/wiki/SPARC">SPARC microprocessor</a> development</li>
-      <li>Hardware Engineer : Support and training for regresion framework.</li>
+      <li>Applications Engineer : Support and training for regresion framework.</li>
       </ul>
       </p>
       </tr>
@@ -70,12 +76,50 @@
     </table>
       </div>
     </div>
-    &nbsp<br>&nbsp<br>
-  <p>Below are some demonstration projects I have worked on recently.</p>
+
 
   <div class="row">
+    <div class="col-10  offset-1" >
+        &nbsp<br>&nbsp<br>
+  <p>Below are some demonstration projects I have worked on recently.</p>
       <table class="table">
         <tbody>
+        <tr>
+            <td >
+              <img src="images/billboard.jpg" alt="Billboard trends" class="img-thumbnail" style="width: 200px; height: 300px" align="right">
+            </td>
+            <td class="align-middle">
+                <p>This work is part of a larger class project analyzing trends in music.
+                It vizualizes Billboard Music Top 100 from 1950 using JavaScript and D3. This was deployed to Heroku 
+                along with the rest of Flask application</p>
+                GitHub Repository: <a href="https://github.com/sandhya-sago/dataProject2">Music Popularity</a><br>
+                See on Heroku: <a href="https://music-popularity.herokuapp.com/billboard">Billboard Top 100 Vizualization</a>
+            </td>
+
+          </tr>
+          <tr>
+            <td class="align-middle" style="width:50%">
+            <p>Dashboard showng and analyzing NY real estate data, LJH Ventures</p>
+            <p>Used Dash by Plotly to vizualize data on a map, and analyze it. Obtained tax information
+            by extracting text from pdf documents. Deployed using AWS Elastic Beanstalk.</p>
+            </td>
+            <td class="align-middle">
+              <img src="images/coopcondo.jpg" alt="NY real estate dashboard" class="img-thumbnail" style="width: 300px; height: 200px">
+            </td>
+          </tr>
+          <tr>
+            <td >
+              <img src="images/neas_viz.jpg" alt="NEAS Survey vizualization" class="img-thumbnail" style="width: 200px; height: 300px" align="right">
+            </td>
+            <td class="align-middle">
+                <p>This work is part of a larger class project analyzing higher education costs, employability and student loans.
+                It vizualizes some parts of the National Education and Attainment Survey using Dash by Plotly. This was deployed to Heroku 
+                along with the rest of Flask application</p>
+                GitHub Repository: <a href="https://github.com/sandhya-sago/higher_education">Higher Education</a><br>
+                See on Heroku: <a href="https://higher-education.herokuapp.com/neas_viz">NEAS Vizualization</a>
+            </td>
+
+          </tr>
           <tr>
             <td class="align-middle" style="width:50%">
               <p>Analysis of drug mortality and socio-economic conditions in Connecticut</p>
@@ -139,6 +183,7 @@
     <!--p><ul><strong>My LinkedIn page</strong> <a href="https://www.linkedin.com/in/sandhya-govindaraju/">sandhya-govindaraju</a></ul></p-->
     <p><ul><strong>Email:</strong> sandhya.govindaraju@gmail.com </ul></p>
     </div>
+  </div>
 </div>
 </body>
 
