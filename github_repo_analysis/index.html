@@ -29,20 +29,54 @@ display: none;
 .fade {
 display: none;
 }
+.links line {
+  stroke: #aaa;
+}
+
+.nodes circle {
+  pointer-events: all;
+  stroke: black;
+  stroke-width: 1px;
+  fill:none
+}
+.node text {
+  pointer-events: all;
+  font: 10px sans-serif;
+}
 
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container-fluid">
-  <p>Google BigQuery has a few open datasets, of which GitHub data is one. However, one can get only 16k rows in a 
-    query without paying extra for storage. So, I got a list of 16k most watched repositories from sample_repos (which 
-    is a list of 400k repositories which got more than 2 starts during Jan-May 2016). GitHub data is available at 
-    <a href="https://bigquery.cloud.google.com/dataset/bigquery-public-data:github_repos">Google Big Query</a>.
-  </p>
-  <p class="text-monospace">
-    <pre>
+  <div class="row">
+  <div class="col-10 offset-1">
+    <div class="jumbotron">
+      <h1 class="display-4">Languages in GitHub repos</h1>
+      <p class="lead">Some visualizations of languages in some of the most popular GitHub repositories.</p>
+      <p class="lead">Heatmap with dendrogram, Chord diagram and Force directed graph.</p>
+    </div>
+    <div class="row">
+      <p>Google BigQuery has a few open datasets, of which GitHub data is one. However, one can get only 16k rows in a 
+        query without paying extra for storage. So, I got a list of 16k most watched repositories from sample_repos (which 
+        is a list of 400k repositories which got more than 2 starts during Jan-May 2016). GitHub data is available at 
+        <a href="https://bigquery.cloud.google.com/dataset/bigquery-public-data:github_repos">Google Big Query</a>.
+      </p>
+    </div>
+    <div class="row">
+    <div class="accordion" id="BigQueryCmd">
+        <div  id="SQLheading">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed dropdown-toggle" type="button" data-toggle="collapse" data-target="#SQLCmd" aria-expanded="false" aria-controls="SQLCmd">
+              Google Big Query Command
+            </button>
+          </h5>
+        </div>
+        <div id="SQLCmd" class="collapse" aria-labelledby="SQLheading" data-parent="#BigQueryCmd">
+            <p><pre>
 SELECT
     sample_repos.repo_name,
     sample_repos.watch_count,
@@ -58,13 +92,61 @@ WHERE sample_repos.repo_name IN (
   FROM `bigquery-public-data.github_repos.commits`)
 ORDER BY sample_repos.watch_count DESC
 LIMIT 16000
-    </pre>
-  </p>
+          </pre>
+          </p>
+        </div>
+    </div><!--End BigQueryCmd accordion-->
+  </div>
+  <div class="row">
+    <p>
+    The most insight into the usage of different languages can be obtained by a dendrogram with a heatmap. Only the
+    top 19 languages by number of repositories they appear in have been taken, and the rest of almost 200 languages
+    have been lumped into "Others". Each sqare 
+    represents the number of repositories that have both the languages. The diagonal elements are the total number of
+    repositories for that particular language.  White and red indicate more number of repositories, and blue less.
+    </p>
+    <p>
+    The most commonly used single languages are Python, JavaScript, HTML, CSS and Shell. HTML/CSS/JavaScript have the 
+    most number of co-occurances. 
+    </p>
+    <p>
+      <img src="github_heat.png">
+    </p>
+  </div>
 
-<svg width="960" height="960"></svg>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="data.js"></script>
-<script src="logic.js"></script>
+  <div class="row">
+    <p><h4>Chord Diagram <small class="text-muted">Not so insightful</small></h4></p>
+    <p>I find that the chord diagram is not a very good representation of the data because:</p>
+    <li>
+        It does not show one-to-many relationships. For example, most of the repositories with JavaScript will have both html and css. 
+        This is represented as JavaScript-HTML and JavaScript-css, but not all together.
+    </li>
+    <li>
+        The size of the arc does not represent the number of repos in the dataset. For example, the number of repos that use JavaScript is 
+        about 6k in my dataset, however, the arc is about 17k. This is because of multiple languages in each repo. For example, if a repo has JavaScript, 
+        HTML, CSS and Python, the length of the arc would be 3.
+    </li>
+    <p>Still, it is a good visualization to show that almost every language is used in conjunction with another one.</p>
+    <p align="center"><div class="chord"></div></p>
+    <br>
+    <br>
+  </div>
+  <div class="row">
+    <p><h4>Force Directed Graph <small class="text-muted">Fancy, but not useful</small></h4></p>
+    <p>This force-directed graph shows the least amount of information of all. The distance is inversly proportional
+    to the number of repositories that share those two languages. Howver, the steady state just shows them in a symmetric
+    pattern</p>
+    
+    <p><div class="force"></div></p>
+  </div>
+
+    
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="data.js"></script>
+    <script src="chord_diagram.js"></script>
+    <script src="force_directed_graph.js"></script>
+</div>
+</div>
 </div>
 </body>
 </html>
