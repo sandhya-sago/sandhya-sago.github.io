@@ -51,13 +51,13 @@ display: none;
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="container">
   <div class="row">
-  <div class="col-10 offset-1">
-    <div class="jumbotron">
+  <div class="col-8 offset-2">
+    <div class="row jumbotron-fluid rounded text-center">
       <h1 class="display-4">Languages in GitHub repos</h1>
-      <p class="lead">Some visualizations of languages in some of the most popular GitHub repositories.</p>
-      <p class="lead">Heatmap with dendrogram, Chord diagram and Force directed graph.</p>
+      <p class="lead">Some visualizations of languages in some of the most popular GitHub repositories.
+      <br>Heatmap with dendrogram, Chord diagram and Force directed graph.</p>
     </div>
     <div class="row">
       <p>Google BigQuery has a few open datasets, of which GitHub data is one. However, one can get only 16k rows in a 
@@ -107,15 +107,16 @@ LIMIT 16000
     </p>
     <p>
     The most commonly used single languages are Python, JavaScript, HTML, CSS and Shell. HTML/CSS/JavaScript have the 
-    most number of co-occurances. 
-    </p>
+    most number of co-occurances and is indicated in red. C/C++/Makefile form another strong group in light blue. Python
+    also seems to form a group with C/C++/Makefile, but looking at the number of repositories they share, we can 
+    conclude that its not a strong co-occurance. Another group emerges with Ruby/Objective-C/Swift.  </p>
     <p>
       <img src="github_heat.png">
     </p>
   </div>
 
   <div class="row">
-    <p><h4>Chord Diagram <small class="text-muted">Not so insightful</small></h4></p>
+    <p><h4>Chord Diagram</h4> <small class="text-muted">Not so insightful</small></p><br>
     <p>I find that the chord diagram is not a very good representation of the data because:</p>
     <li>
         It does not show one-to-many relationships. For example, most of the repositories with JavaScript will have both html and css. 
@@ -134,17 +135,15 @@ LIMIT 16000
   <div class="row">
     <p><h4>Force Directed Graph <small class="text-muted">Fancy, but not useful</small></h4></p>
     <p>This force-directed graph shows the least amount of information of all. The distance is inversly proportional
-    to the number of repositories that share those two languages. Howver, the steady state just shows them in a symmetric
+    to the number of repositories that share those two languages. However, the steady state just shows them in a symmetric
     pattern</p>
     
     <p><div class="force"></div></p>
   </div>
-
-    
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="data.js"></script>
-    <script src="chord_diagram.js"></script>
-    <script src="force_directed_graph.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="data.js"></script>
+  <script src="chord_diagram.js"></script>
+  <script src="force_directed_graph.js"></script>
 </div>
 </div>
 </div>
